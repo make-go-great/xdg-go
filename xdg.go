@@ -13,11 +13,14 @@ const (
 	EnvConfigHome = "XDG_CONFIG_HOME"
 )
 
+// GetHome return home from environment
 func GetHome() string {
 	home := os.Getenv(EnvHome)
 	return home
 }
 
+// GetDataHome return data gome from environment first
+// falback to default later
 func GetDataHome() string {
 	dataHome := os.Getenv(EnvDataHome)
 	if dataHome != "" {
@@ -29,6 +32,8 @@ func GetDataHome() string {
 	return dataHome
 }
 
+// GetConfigHome return config home from environment first
+// fallback to default later
 func GetConfigHome() string {
 	configHome := os.Getenv(EnvConfigHome)
 	if configHome != "" {
