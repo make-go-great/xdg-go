@@ -3,23 +3,27 @@
 package xdg
 
 import (
+	"log"
 	"os"
 	"path/filepath"
 )
 
 const (
-	EnvHome       = "HOME"
 	EnvDataHome   = "XDG_DATA_HOME"
 	EnvConfigHome = "XDG_CONFIG_HOME"
 )
 
 // GetHome return home from environment
 func GetHome() string {
-	home := os.Getenv(EnvHome)
+	home, err := os.UserHomeDir()
+	if err != nil {
+		log.Fatalln("Failed to get user home dir", err)
+	}
+
 	return home
 }
 
-// GetDataHome return data gome from environment first
+// GetDataHome return data home from environment first
 // falback to default later
 func GetDataHome() string {
 	dataHome := os.Getenv(EnvDataHome)
