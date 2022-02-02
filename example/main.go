@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/haunt98/xdg"
+	"github.com/make-go-great/xdg-go"
 )
 
 func main() {

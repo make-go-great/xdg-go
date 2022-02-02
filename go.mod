@@ -1,3 +1,3 @@
-module github.com/haunt98/xdg
+module github.com/make-go-great/xdg-go
 
-go 1.15
+go 1.17
